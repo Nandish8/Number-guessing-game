@@ -9,7 +9,7 @@ then
   INSERT_UN=$($PSQL "INSERT INTO ng(user_name) VALUES('$USERNAME')")
   echo -e "\nWelcome, $USERNAME! It looks like this is your first time here."
   echo -e "\nGuess the secret number between 1 and 1000:"
-  SEC_NUM=$($PSQL "SELECT floor(random() * (2-0+1) + 0)")
+  SEC_NUM=$((1 + $RANDOM % 1000))
   read INPUT
   while true
   do
