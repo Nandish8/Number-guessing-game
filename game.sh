@@ -19,12 +19,12 @@ then
       echo -e "\nThat is not an integer, guess again:"
       read INPUT
     else
-      if [[ $SEC_NUM -gt $INPUT  ]]
+      if [[ $SEC_NUM -lt $INPUT  ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
         echo -e "\nIt's higher than that, guess again:"
         read INPUT
-      elif [[ $SEC_NUM -lt $INPUT  ]]
+      elif [[ $SEC_NUM -gt $INPUT  ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
         echo -e "\nIt's lower than that, guess again:"
@@ -43,7 +43,7 @@ else
   USER_ID=$($PSQL "SELECT user_id FROM ng WHERE user_name = '$USERNAME'")
   BEST_GAME=$($PSQL "SELECT MIN(num_of_g) FROM gi WHERE user_id = $USER_ID")
   NO_GAMES=$($PSQL "SELECT COUNT(GAME_ID) FROM gi WHERE user_id=$USER_ID")
-  echo -e "\nWelcome back, $USERNAME! You have played $NO_GAMES games, and your best game took $BEST_GAME gueses."
+  echo -e "\nWelcome back, $USERNAME! You have played $NO_GAMES games, and your best game took $BEST_GAME guesses."
   echo -e "\nGuess the secret number between 1 and 1000:"
   SEC_NUM=$($PSQL "SELECT floor(random() * (2-0+1) + 0)")
   read INPUT
@@ -55,12 +55,12 @@ else
       echo -e "\nThat is not an integer, guess again:"
       read INPUT
     else
-      if [[ $SEC_NUM -gt $INPUT  ]]
+      if [[ $SEC_NUM -lt $INPUT  ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
         echo -e "\nIt's higher than that, guess again:"
         read INPUT
-      elif [[ $SEC_NUM -lt $INPUT  ]]
+      elif [[ $SEC_NUM -gt $INPUT  ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
         echo -e "\nIt's lower than that, guess again:"
