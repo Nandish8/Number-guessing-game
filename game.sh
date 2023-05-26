@@ -44,6 +44,7 @@ else
   BEST_GAME=$($PSQL "SELECT MIN(num_of_g) FROM gi WHERE user_id = $USER_ID")
   NO_GAMES=$($PSQL "SELECT COUNT(GAME_ID) FROM gi WHERE user_id=$USER_ID")
   echo -e "\nWelcome back, $USERNAME! You have played $NO_GAMES games, and your best game took $BEST_GAME guesses."
+  # echo -e "\nWelcome back, $USERNAME! You have played $NO_GAMES games, and your best game took $BEST_GAME guesses."
   echo -e "\nGuess the secret number between 1 and 1000:"
   SEC_NUM=$($PSQL "SELECT floor(random() * (2-0+1) + 0)")
   read INPUT
