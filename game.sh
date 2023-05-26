@@ -32,7 +32,7 @@ then
       elif [[ $INPUT == $SEC_NUM ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
-        echo -e "\nYou guessed it in $NUM_OF_G tries. The secret number was $SEC_NUM, Nice job!"
+        echo -e "\nYou guessed it in $NUM_OF_G tries. The secret number was $SEC_NUM. Nice job!"
         USER_ID=$($PSQL "SELECT user_id FROM ng WHERE user_name = '$USERNAME'")
         INSERT_NUM_OF_G=$($PSQL "INSERT INTO gi(user_id,num_of_g) VALUES($USER_ID, $NUM_OF_G)")
         break
@@ -68,7 +68,7 @@ else
       elif [[ $INPUT == $SEC_NUM ]]
       then
         NUM_OF_G=`expr $NUM_OF_G + 1`
-        echo -e "\nYou guessed it in $NUM_OF_G tries. The secret number was $SEC_NUM, Nice job!"
+        echo -e "\nYou guessed it in $NUM_OF_G tries. The secret number was $SEC_NUM. Nice job!"
         USER_ID=$($PSQL "SELECT user_id FROM ng WHERE user_name = '$USERNAME'")
         INSERT_NUM_OF_G=$($PSQL "INSERT INTO gi(user_id,num_of_g) VALUES($USER_ID, $NUM_OF_G)")
         break
